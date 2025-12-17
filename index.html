@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="An interactive map for the Lord Of The Rings : Rings Of Power Amazon TV show. Follow Galadriel's path and the others!" />
+    <meta name="description" content="An interactive map for the Lord Of The Rings : Rings Of Power Amazon TV show. Follow Galadriel's path and the others!" />
     <meta property="og:title" content="Lord of The Rings: Rings of Power - Interactive map" />
     <meta property="og:site_name" content="Rings of Power Interactive map" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://rop-map.com" />
     <meta property="og:image" content="https://rop-map.com/img/og-image-social.jpg" />
-    <meta property="og:description"
-        content="An interactive map for the Lord Of The Rings : Rings Of Power Amazon TV show. Follow Galadriel's path and the others!" />
+    <meta property="og:description" content="An interactive map for the Lord Of The Rings : Rings Of Power Amazon TV show. Follow Galadriel's path and the others!" />
     <meta name="twitter:creator" content="@algernhon">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#5e81ac">
+
     <title>Lord of The Rings: Rings of Power - Interactive map</title>
+
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/plugins/leaflet.css" />
@@ -28,15 +28,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <script defer type="text/javascript" src="data/paths.js?version=35"></script>
-    <script defer type="text/javascript" src="data/markers.js?version=35"></script>
-    <script defer src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
-        integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+
+    <!-- Data -->
+    <script defer src="data/paths.js"></script>
+    <script defer src="data/markers.js"></script>
+
+    <!-- Leaflet -->
+    <script defer src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"></script>
+
+    <!-- Plugins -->
     <script defer src="js/plugins/leaflet.draw.js"></script>
     <script defer src="js/plugins/coordinates.js"></script>
     <script defer src="js/plugins/snakeanim.js"></script>
     <script defer src="js/plugins/nouislider.min.js"></script>
-    <script defer src="js/main.js?version=36"></script>
+
+    <!-- App core (ORDER MATTERS) -->
+    <script defer src="js/core/state.js"></script>
+    <script defer src="js/core/map.js"></script>
+    <script defer src="js/core/markers.js"></script>
+    <script defer src="js/core/paths.js"></script>
+    <script defer src="js/core/ui.js"></script>
+    <script defer src="js/core/slider.js"></script>
+
+    <!-- Bootstrap LAST -->
+    <script defer src="js/main.js"></script>
 </head>
 
 <body>
