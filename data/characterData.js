@@ -1,38 +1,46 @@
 DATA_CHARACTERS = [
     {
         "name": "Nori",
+        "Title": "Rings of Power",
         "color": "#2f4f22"
     },
     {
         "name": "Galadriel",
-        seasons: [1, 2],
+        "Title": "Rings of Power",
+        "seasons": [1, 2],
         "color": "#3c76b1",
-        portrait: "galadriel.webp"
+        "portrait": "galadriel.webp"
     },
     {
         "name": "Elrond",
+        "Title": "Rings of Power",
         "color": "#907826"
     },
     {
         "name": "Arondir",
+        "Title": "Rings of Power",
         "color": "#81639f"
     },
     {
         "name": "Elendil",
+        "Title": "Rings of Power",
         "color": "#494949"
     },
     {
         "name": "Halbrand",
+        "Title": "Rings of Power",
         "color": "#a9531f"
     },
     {
         "name": "Frodo and Sam",
-        seasons: [100],
+        "Title": "The Lord of the Rings: The Fellowship of the Ring",
+        "seasons": [100],
         "color": "#912222",
-        portrait: "frodosam.webp"
+        "portrait": "frodosam.webp"
     },
     {
         "name": "Bilbo and Thorin",
+        "Title": "The Hobbit",
         "color": "#4e2291"
     }
 ]
