@@ -27,6 +27,8 @@ window.SeasonController = (function () {
             PathsController.refreshTimelinePaths();
             MarkersController.clearMarkers();
             MarkersController.addMarkers();
+
+            PathsUIController.rebuild();
         });
     }
 
