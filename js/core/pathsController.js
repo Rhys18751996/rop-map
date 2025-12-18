@@ -10,9 +10,7 @@ window.PathsController = (function () {
                 { snakingPause: AppState.PATH_SPEED_ANIMATION }
             ).addTo(MapController.map);
 
-            // Animate only on first add
-            layer.snakeIn();
-
+            layer.snakeIn(); // Animate only on first add
             paths[characterName] = layer;
 
         // REMOVE
@@ -27,37 +25,33 @@ window.PathsController = (function () {
 
     // INSTANT refresh — NO animation
     function refreshTimelinePaths() {
+        const season = SeasonController.getCurrentSeason();
+
         Object.keys(AppState.LIST_PATHS).forEach(characterName => {
-
             AppState.LIST_PATHS[characterName].removeFrom(MapController.map);
-
             AppState.LIST_PATHS[characterName] =
-                L.layerGroup(
-                    getPolylinesFromName(characterName)
-                ).addTo(MapController.map);
+                L.layerGroup(getPolylinesFromName(characterName, season))
+                    .addTo(MapController.map);
         });
 
         MarkersController.clearMarkers();
         MarkersController.addMarkers();
     }
 
-    function getPolylinesFromName(characterName) {
-
+    function getPolylinesFromName(characterName, season = SeasonController.getCurrentSeason()) {
         const filteredPaths = DATA_PATHS.paths.filter(p =>
             p.character === characterName &&
             (
-                // Episodes
-                (p.season === 1 &&
+                (p.season === season.id &&
                  p.episode >= AppState.CURRENT_RANGE[0] &&
                  p.episode <= AppState.CURRENT_RANGE[1])
                 ||
-                // Movies
-                p.season >= 100
+                // Movies (season.id >= 100)
+                (season.id >= 100 && p.season === season.id)
             )
         );
 
-        const color =
-            DATA_PATHS.characters.find(c => c.name === characterName).color;
+        const color = DATA_PATHS.characters.find(c => c.name === characterName).color;
 
         return filteredPaths.map(p =>
             L.polyline(p.coordinates, {
@@ -69,9 +63,6 @@ window.PathsController = (function () {
         );
     }
 
-    return {
-        togglePath,
-        refreshTimelinePaths
-    };
+    return { togglePath, refreshTimelinePaths };
 
 })();

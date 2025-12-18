@@ -17,5 +17,5 @@ window.timelineChange = (range) => {
 
 // Initialize SeasonController after DOM ready
 document.addEventListener('DOMContentLoaded', () => {
-    SeasonController.init();
+    SeasonController.initDropdown();
 });
