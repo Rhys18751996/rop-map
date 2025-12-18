@@ -17,7 +17,14 @@ const DATA_SEASONS = [
         id: 100,
         name: "The Lord of the Rings (Movies)",
         episodes: 1,
-        characters: ["Frodo and Sam","Bilbo and Thorin"],
+        characters: ["Frodo and Sam"],
+        markersRelevant: marker => marker.episodes.some(e => e.season === 100 || e.season === 101)
+    },
+        {
+        id: 104,
+        name: "The Hobbit (Movies)",
+        episodes: 1,
+        characters: ["Bilbo and Thorin"],
         markersRelevant: marker => marker.episodes.some(e => e.season === 100 || e.season === 101)
     }
 ];
