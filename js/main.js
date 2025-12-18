@@ -9,10 +9,8 @@
 
 // Toggles a character's path on the map when the corresponding button or element is clicked
 window.setPath = (element) => PathsController.togglePath(element.name);
-
 // Show or hide UI panels or elements
 window.hideshow = UIController.hideshow;
-
 // Display contextual labels or tooltips for interactions
 window.interactionLabel = UIController.interactionLabel;
 
