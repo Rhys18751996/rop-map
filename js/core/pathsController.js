@@ -22,6 +22,13 @@ window.PathsController = (function () {
         MarkersController.addMarkers();
     }
 
+    function hasPaths(characterName, seasonId) {
+        return DATA_PATHS.paths.some(p =>
+            p.character === characterName &&
+            (p.season === seasonId || p.season >= 100)
+        );
+    }
+
     function refreshTimelinePaths() {
         const currentSeason = SeasonController.getCurrentSeason();
 
@@ -58,7 +65,7 @@ window.PathsController = (function () {
         );
     }
 
-    return { togglePath, refreshTimelinePaths };
+    return { togglePath, refreshTimelinePaths, hasPaths };
 
 })();
 

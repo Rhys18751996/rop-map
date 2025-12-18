@@ -1,44 +1,39 @@
-// rop-map/js/core/pathsUIController.js
-/*
-Responsibility:
-- DOM Logic, this will decide what character icons will be put onto html
-- Build checkboxes + labels
-- Filter characters by season
-- Reset paths when season changes
-*/
-
 window.PathsUIController = (function () {
     const grid = document.getElementById('pathsgrid');
 
     function rebuild() {
         const season = SeasonController.getCurrentSeason();
+        const series = season.series; // "rop" or "lotr"
+
         grid.innerHTML = '';
 
-        const characters = [...new Set(
-            DATA_PATHS.paths
-                .filter(p => p.season === season.id || p.season >= 100)
-                .map(p => p.character)
-        )];
+        Object.values(DATA_CHARACTERS)
+            .filter(char =>
+                char.series === series &&
+                char.seasons.includes(season.id)
+            )
+            .forEach(char => {
+                const id = `checkbox-${char.name.replace(/\s+/g, '')}`;
+                const disabled = !PathsController.hasPaths(char.name, season.id);
 
-        characters.forEach(name => {
-            const id = `checkbox-${name.replace(/\s+/g, '')}`;
+                grid.insertAdjacentHTML('beforeend', `
+                    <div class="pathsgrid__card ${disabled ? 'is-disabled' : ''}">
+                        <input type="checkbox"
+                               name="${char.name}"
+                               id="${id}"
+                               ${disabled ? 'disabled' : ''}
+                               onchange="setPath(this)" />
 
-            grid.insertAdjacentHTML('beforeend', `
-                <div class="pathsgrid__card">
-                    <input type="checkbox"
-                           name="${name}"
-                           id="${id}"
-                           onchange="setPath(this)" />
-                    <label class="pathsgrid__label"
-                           for="${id}"
-                           tabindex="0"
-                           onkeydown="interactionLabel(event)">
-                        <img src="img/portraits/${name.toLowerCase().replace(/\s+/g,'')}.webp">
-                        <p>${name}</p>
-                    </label>
-                </div>
-            `);
-        });
+                        <label class="pathsgrid__label"
+                               for="${id}"
+                               tabindex="0"
+                               onkeydown="interactionLabel(event)">
+                            <img src="${char.portrait}" alt="${char.name}'s Path">
+                            <p>${char.name}</p>
+                        </label>
+                    </div>
+                `);
+            });
     }
 
     return { rebuild };

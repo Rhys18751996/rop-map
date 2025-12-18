@@ -20,18 +20,18 @@ window.SeasonController = (function () {
             const selectedIndex = Number(seasonSelect.value);
             currentSeason = DATA_SEASONS[selectedIndex];
 
-            // 1️⃣ Clear state FIRST
+            // Clear state FIRST
             AppState.LIST_PATHS = {};
 
-            // 2️⃣ Update timeline / season-dependent systems
+            // Update timeline / season-dependent systems
             SliderController.updateSlider(currentSeason.episodes);
 
-            // 3️⃣ Clear & rebuild map visuals
+            // Clear & rebuild map visuals
             PathsController.refreshTimelinePaths();
             MarkersController.clearMarkers();
             MarkersController.addMarkers();
 
-            // 4️⃣ Rebuild UI LAST
+            // Rebuild UI LAST
             PathsUIController.rebuild();
         });
     }
