@@ -6,17 +6,11 @@ window.MarkersController = (function () {
     }
 
     function addMarkers() {
-        const season = SeasonController.getCurrentSeason();
+        const currentSeason = SeasonController.getCurrentSeason();
 
         DATA_MARKERS.markers.forEach(marker => {
-            // Check if marker is relevant for the current season
-            const isMarkerRelevant = marker.episodes.some(e =>
-                e.season === season.id &&
-                e.episode >= AppState.CURRENT_RANGE[0] &&
-                e.episode <= AppState.CURRENT_RANGE[1]
-            );
-
-            if (!isMarkerRelevant) return;
+            // Only include markers relevant to current season
+            if (!currentSeason.markersRelevant(marker)) return;
 
             const type = DATA_MARKERS.types.find(t => t.name === marker.type);
             const leafletMarker = L.marker(marker.coordinates, {
@@ -44,12 +38,11 @@ window.MarkersController = (function () {
                     <div>
                         ${marker.decription}
                         <div class='tooltip-seenin'>
-                            <strong>Seen in:</strong> ${marker.episodes
-                                .filter(e => e.season === season.id)
-                                .map(e => (e.season >= 100
-                                    ? e.season === 100 ? "Lord Of The Rings (Movie)" : "The Hobbit (Movie)"
-                                    : `S0${e.season}E0${e.episode}`))
-                                .join(", ")}
+                            <strong>Seen in:</strong> ${marker.episodes.map(e => {
+                                if (e.season === 100) return "Lord Of The Rings (Movie)";
+                                if (e.season === 101) return "The Hobbit (Movie)";
+                                return `S0${e.season}E0${e.episode}`;
+                            }).join(", ")}
                         </div>
                         ${marker.readMoreUrl ? `<div class='tooltip-moreinfo'><a href='${marker.readMoreUrl}' target='_blank'>Read more about ${marker.title}</a></div>` : ''}
                     </div>

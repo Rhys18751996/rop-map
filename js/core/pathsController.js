@@ -2,18 +2,16 @@ window.PathsController = (function () {
 
     function togglePath(characterName) {
         const paths = AppState.LIST_PATHS;
+        const currentSeason = SeasonController.getCurrentSeason();
 
-        // ADD (animate)
         if (!paths[characterName]) {
             const layer = L.layerGroup(
-                getPolylinesFromName(characterName),
+                getPolylinesFromName(characterName, currentSeason.id),
                 { snakingPause: AppState.PATH_SPEED_ANIMATION }
             ).addTo(MapController.map);
 
-            layer.snakeIn(); // Animate only on first add
+            layer.snakeIn(); // animate first add
             paths[characterName] = layer;
-
-        // REMOVE
         } else {
             paths[characterName].removeFrom(MapController.map);
             delete paths[characterName];
@@ -23,32 +21,24 @@ window.PathsController = (function () {
         MarkersController.addMarkers();
     }
 
-    // INSTANT refresh — NO animation
     function refreshTimelinePaths() {
-        const season = SeasonController.getCurrentSeason();
+        const currentSeason = SeasonController.getCurrentSeason();
 
         Object.keys(AppState.LIST_PATHS).forEach(characterName => {
             AppState.LIST_PATHS[characterName].removeFrom(MapController.map);
-            AppState.LIST_PATHS[characterName] =
-                L.layerGroup(getPolylinesFromName(characterName, season))
-                    .addTo(MapController.map);
+            AppState.LIST_PATHS[characterName] = L.layerGroup(
+                getPolylinesFromName(characterName, currentSeason.id)
+            ).addTo(MapController.map);
         });
 
         MarkersController.clearMarkers();
         MarkersController.addMarkers();
     }
 
-    function getPolylinesFromName(characterName, season = SeasonController.getCurrentSeason()) {
+    function getPolylinesFromName(characterName, seasonId) {
         const filteredPaths = DATA_PATHS.paths.filter(p =>
             p.character === characterName &&
-            (
-                (p.season === season.id &&
-                 p.episode >= AppState.CURRENT_RANGE[0] &&
-                 p.episode <= AppState.CURRENT_RANGE[1])
-                ||
-                // Movies (season.id >= 100)
-                (season.id >= 100 && p.season === season.id)
-            )
+            (p.season === seasonId || p.season >= 100) // movies remain included
         );
 
         const color = DATA_PATHS.characters.find(c => c.name === characterName).color;
