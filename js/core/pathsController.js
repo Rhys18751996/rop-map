@@ -37,9 +37,13 @@ window.PathsController = (function () {
     }
 
     function getPolylinesFromName(characterName, seasonId) {
+        const [from, to] = AppState.CURRENT_RANGE;
+
         const filteredPaths = DATA_PATHS.paths.filter(p =>
             p.character === characterName &&
-            (p.season === seasonId || p.season >= 100) // movies remain included
+            (p.season === seasonId || p.season >= 100) &&
+            p.episode >= from &&
+            p.episode <= to
         );
 
         const color = DATA_PATHS.characters.find(c => c.name === characterName).color;

@@ -28,11 +28,19 @@ window.MarkersController = (function () {
     function addMarkers() {
         // Get the currently selected season
         const currentSeason = SeasonController.getCurrentSeason();
+        const [from, to] = AppState.CURRENT_RANGE;
 
         // Loop through all markers defined in DATA_MARKERS
         DATA_MARKERS.markers.forEach(marker => {
+            
             // Skip markers that are not relevant to the current season
-            if (!currentSeason.markersRelevant(marker)) return;
+            const matchesSeason = currentSeason.markersRelevant(marker);
+            const matchesEpisodeRange = marker.episodes.some(e =>
+                e.season === currentSeason.id &&
+                e.episode >= from &&
+                e.episode <= to
+            );
+            if (!matchesSeason || !matchesEpisodeRange) return;
 
             // Find marker type information (icon, size, anchor points)
             const type = DATA_MARKERS.types.find(t => t.name === marker.type);
