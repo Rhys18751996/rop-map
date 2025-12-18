@@ -15,7 +15,6 @@ window.MarkersController = (function () {
     function clearMarkers() {
         // Remove each marker from the map
         AppState.LIST_MARKERS.forEach(marker => marker.removeFrom(MapController.map));
-
         // Clear the array holding references to markers
         AppState.LIST_MARKERS.length = 0;
     }
