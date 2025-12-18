@@ -1,3 +1,4 @@
+// rop-map/data/seasonsData.js
 const DATA_SEASONS = [
     {
         id: 1,

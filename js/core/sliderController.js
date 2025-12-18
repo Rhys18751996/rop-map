@@ -1,3 +1,4 @@
+// rop-map/js/core/sliderController.js
 window.SliderController = (function () {
     const slider = document.getElementById('slider');
 

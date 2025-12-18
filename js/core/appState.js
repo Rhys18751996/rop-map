@@ -1,3 +1,4 @@
+// rop-map/js/core/appState.js
 // Shared global state
 window.AppState = {
     LIST_PATHS: {},
@@ -6,9 +7,3 @@ window.AppState = {
     PATH_SPEED_ANIMATION: 400,
     PATH_WEIGHT: 4
 };
-
-
-// Now all modules access via 
-/*
-const { LIST_PATHS, LIST_MARKERS } = AppState;
-*/

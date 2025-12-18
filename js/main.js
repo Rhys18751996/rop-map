@@ -1,3 +1,4 @@
+// rop-map/js/main.js
 // ==============================
 // Global Handlers for Inline HTML
 // ==============================
@@ -20,3 +21,8 @@ window.interactionLabel = UIController.interactionLabel;
 window.seasonChange = (seasonId) => {
     SeasonController.selectSeason(Number(seasonId));
 };
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    SeasonController.initDropdown();
+});

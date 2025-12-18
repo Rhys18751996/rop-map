@@ -1,3 +1,4 @@
+// rop-map/js/core/seasonController.js
 window.SeasonController = (function () {
     const seasonSelect = document.getElementById('seasonSelect');
 

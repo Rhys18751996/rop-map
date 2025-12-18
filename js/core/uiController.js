@@ -1,3 +1,4 @@
+// rop-map/js/core/uiController.js
 window.UIController = (function () {
 
     /*
@@ -23,7 +24,6 @@ window.UIController = (function () {
 
     /*
      * A11Y Function: Trigger checkbox when using keyboard on focused label
-     *
      * @param event KeyboardEvent
      */
     function interactionLabel(event) {

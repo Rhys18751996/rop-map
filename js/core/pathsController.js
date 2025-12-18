@@ -1,3 +1,4 @@
+// rop-map/js/core/pathsController.js
 window.PathsController = (function () {
 
     function togglePath(characterName) {
