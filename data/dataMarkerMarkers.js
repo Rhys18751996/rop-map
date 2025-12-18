@@ -13,7 +13,7 @@ const DATA_MARKERS = {
             "isConfirmed": true
         },
         {
-            "title": "Passing of the Evles",
+            "title": "Passing of the Elves",
             "coordinates": [771, 631.8],
             "type": "event",
             "image": "passing-elves.webp",
