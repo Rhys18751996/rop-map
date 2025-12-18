@@ -56,3 +56,11 @@ window.PathsController = (function () {
     return { togglePath, refreshTimelinePaths };
 
 })();
+
+// Handles timeline range changes (e.g., from a slider control)
+// Updates the current visible episode range in the AppState
+// and refreshes the map paths to only show the paths in that range
+window.timelineChange = (range) => {
+    AppState.CURRENT_RANGE = range;
+    PathsController.refreshTimelinePaths();
+};
