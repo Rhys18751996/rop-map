@@ -39,8 +39,8 @@ window.MarkersController = (function () {
                         ${marker.decription}
                         <div class='tooltip-seenin'>
                             <strong>Seen in:</strong> ${marker.episodes.map(e => {
-                                if (e.season === 100) return "Lord Of The Rings (Movie)";
-                                if (e.season === 101) return "The Hobbit (Movie)";
+                                if (e.season === 100) return "The Lord of the Rings (Movies)";
+                                if (e.season === 104) return "The Hobbit (Movies)";
                                 return `S0${e.season}E0${e.episode}`;
                             }).join(", ")}
                         </div>
