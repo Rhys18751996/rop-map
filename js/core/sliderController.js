@@ -2,6 +2,7 @@ window.SliderController = (function () {
 
     const slider = document.getElementById('slider');
 
+    // List of default episode names (optional)
     const listEpisodes = [
         'Prologue',
         'Episode 1',
@@ -14,17 +15,18 @@ window.SliderController = (function () {
         'Episode 8'
     ];
 
+    // Initialize the slider once
     noUiSlider.create(slider, {
-        start: [0, 8],
+        start: [0, listEpisodes.length - 1],
         connect: true,
         step: 1,
-        range: { min: 0, max: 8 },
+        range: { min: 0, max: listEpisodes.length - 1 },
         pips: {
             mode: 'steps',
             density: 100,
             filter: () => 2,
             format: {
-                to: value => listEpisodes[value],
+                to: value => listEpisodes[value] || `Episode ${value}`,
                 from: value => Number(value)
             }
         }
@@ -35,6 +37,26 @@ window.SliderController = (function () {
     });
 
     // initialize timeline state AFTER slider exists
-    window.timelineChange([0, 8]);
+    window.timelineChange([0, listEpisodes.length - 1]);
+
+    // Function to dynamically update slider range when season changes
+    function updateSlider(episodeCount) {
+        slider.noUiSlider.updateOptions({
+            range: { min: 0, max: episodeCount },
+            start: [0, episodeCount],
+            pips: {
+                mode: 'steps',
+                density: 100,
+                filter: () => 2,
+                format: {
+                    to: value => `Episode ${value}`,
+                    from: value => Number(value)
+                }
+            }
+        });
+        window.timelineChange([0, episodeCount]);
+    }
+
+    return { updateSlider };
 
 })();

@@ -43,12 +43,12 @@
     <script defer src="js/plugins/nouislider.min.js"></script>
 
     <!-- App core (ORDER MATTERS) -->
-    <script defer src="js/core/state.js"></script>
-    <script defer src="js/core/map.js"></script>
-    <script defer src="js/core/markers.js"></script>
-    <script defer src="js/core/paths.js"></script>
-    <script defer src="js/core/ui.js"></script>
-    <script defer src="js/core/slider.js"></script>
+    <script defer src="js/core/appState.js"></script>
+    <script defer src="js/core/mapController.js"></script>
+    <script defer src="js/core/markersController.js"></script>
+    <script defer src="js/core/pathsController.js"></script>
+    <script defer src="js/core/uiController.js"></script>
+    <script defer src="js/core/sliderController.js"></script>
 
     <!-- Bootstrap LAST -->
     <script defer src="js/main.js"></script>
@@ -64,7 +64,16 @@
                         <p class="menu__header-description">A Rings Of Power interactive map</p>
                     </header>
                     <div class="menu__paths">
+
                         <h2>Rings Of Power</h2>
+
+                        <div class="season-selector">
+                            <label for="selectSeason">Select Season:</label>
+                            <select id="selectSeason" onchange="window.seasonChange(this.value)">
+                                <!-- Options populated dynamically -->
+                            </select>
+                        </div>
+
                         <div class="pathsgrid">
                             <div class="pathsgrid__card">
                                 <input type="checkbox" name="Arondir" id="checkboxArondir" onchange="setPath(this)" />
