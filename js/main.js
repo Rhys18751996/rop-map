@@ -16,12 +16,6 @@ window.hideshow = UIController.hideshow;
 // Display contextual labels or tooltips for interactions
 window.interactionLabel = UIController.interactionLabel;
 
-// Handles season changes from the dropdown select element
-// Converts the selected value to a number and passes it to the SeasonController
-window.seasonChange = (seasonId) => {
-    SeasonController.selectSeason(Number(seasonId));
-};
-
 
 document.addEventListener('DOMContentLoaded', () => {
     SeasonController.initDropdown();
