@@ -115,23 +115,5 @@ DATA_PATHS.paths.push(
         "episode": 2,
         "isConfirmed": true,
         "coordinates": [[90, 140], [100, 150], [110, 160], [120, 170]]
-    },
-
-    // Frodo and Sam (Season 2 is hypothetical)
-    {
-        "character": "Frodo and Sam",
-        "season": 2,
-        "episode": 1,
-        "isConfirmed": false,
-        "coordinates": [[780, 620], [785, 630], [790, 640], [795, 650], [800, 660]]
-    },
-
-    // Bilbo and Thorin (Season 2 is hypothetical)
-    {
-        "character": "Bilbo and Thorin",
-        "season": 2,
-        "episode": 1,
-        "isConfirmed": false,
-        "coordinates": [[780, 625], [785, 635], [790, 645], [795, 655], [800, 665]]
     }
 );

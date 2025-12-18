@@ -46,7 +46,7 @@ window.PathsController = (function () {
             p.episode <= to
         );
 
-        const color = DATA_PATHS.characters.find(c => c.name === characterName).color;
+        const color = DATA_CHARACTERS.characters.find(c => c.name === characterName).color;
 
         return filteredPaths.map(p =>
             L.polyline(p.coordinates, {
