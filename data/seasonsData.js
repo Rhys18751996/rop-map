@@ -15,6 +15,13 @@ const DATA_SEASONS = [
         markersRelevant: marker => marker.episodes.some(e => e.season === 2)
     },
     {
+        id: 3,
+        name: "Rings of Power - Season 3",
+        episodes: 8,
+        characters: ["Elendil","Elrond","Halbrand","Nori"],
+        markersRelevant: marker => marker.episodes.some(e => e.season === 2)
+    },
+    {
         id: 100,
         name: "The Lord of the Rings (Movies)",
         episodes: 1,
