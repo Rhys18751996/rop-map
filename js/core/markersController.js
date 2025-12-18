@@ -43,7 +43,7 @@ window.MarkersController = (function () {
             if (!matchesSeason || !matchesEpisodeRange) return;
 
             // Find marker type information (icon, size, anchor points)
-            const type = DATA_MARKERS.types.find(t => t.name === marker.type);
+            const type = DATA_MARKER_TYPES.types.find(t => t.name === marker.type);
 
             // Create a Leaflet marker at the marker's coordinates
             const leafletMarker = L.marker(marker.coordinates, {
