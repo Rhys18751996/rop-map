@@ -26,13 +26,13 @@ window.SeasonController = (function () {
             // Update timeline / season-dependent systems
             SliderController.updateSlider(currentSeason.episodes);
 
-            // Clear & rebuild map visuals
-            PathsController.refreshTimelinePaths();
+            // Clear & rebuild path visuals
+            PathsController.clearPaths();
+            PathsController.addPaths();
+
+            // Clear & rebuild marker visuals
             MarkersController.clearMarkers();
             MarkersController.addMarkers();
-
-            // Rebuild UI LAST
-            PathsUIController.rebuild();
         });
     }
 

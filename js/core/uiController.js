@@ -32,7 +32,7 @@ window.UIController = (function () {
         // Enter (13) or Space (32)
         if (event.keyCode === 13 || event.keyCode === 32) {
             checkbox.checked = !checkbox.checked;
-            window.setPath(checkbox);
+            CharacterCheckBoxController.setPath(checkbox);
         }
     }
 

@@ -1,9 +1,6 @@
 // rop-map/js/core/sliderController.js
 window.SliderController = (function () {
-    const slider = document.getElementById('slider');
-
-    const defaultSeason = SeasonController.getCurrentSeason();
-    const episodeCount = defaultSeason.episodes;
+    let slider;
 
     function createSlider(count) {
         if (slider.noUiSlider) {
@@ -26,20 +23,37 @@ window.SliderController = (function () {
             }
         });
 
-        slider.noUiSlider.on('update', function (values) {
-            window.timelineChange([Number(values[0]), Number(values[1])]);
+        slider.noUiSlider.on('update', values => {
+            sliderChange([Number(values[0]), Number(values[1])]);
         });
 
         window.timelineChange([0, count]);
     }
 
-    // Initialize with default season
-    createSlider(episodeCount);
+    function init() {
+        slider = document.getElementById('slider');
 
-    // Update slider for a new season
+        const season = SeasonController.getCurrentSeason();
+        createSlider(season.episodes);
+    }
+
     function updateSlider(newCount) {
         createSlider(newCount);
     }
 
-    return { updateSlider };
+    function sliderChange(range) {
+        AppState.CURRENT_RANGE = range;
+
+        PathsController.clearPaths();
+        PathsController.addPaths();
+
+        MarkersController.clearMarkers();
+        MarkersController.addMarkers();
+    }
+
+    return {
+        init,
+        updateSlider,
+        sliderChange
+    };
 })();

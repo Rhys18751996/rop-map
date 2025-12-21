@@ -1,6 +1,9 @@
 // rop-map/js/core/pathsController.js
-window.PathsController = (function () {
 
+window.PathsController = (function () {
+    // ------------------------------
+    // togglePath(characterName)
+    // ------------------------------
     function togglePath(characterName) {
         const paths = AppState.LIST_PATHS;
         const currentSeason = SeasonController.getCurrentSeason();
@@ -17,11 +20,33 @@ window.PathsController = (function () {
             paths[characterName].removeFrom(MapController.map);
             delete paths[characterName];
         }
-
-        MarkersController.clearMarkers();
-        MarkersController.addMarkers();
     }
 
+    // ------------------------------
+    // clearPaths()
+    // ------------------------------
+    function clearPaths() {
+        Object.keys(AppState.LIST_PATHS).forEach(characterName => {
+            AppState.LIST_PATHS[characterName].removeFrom(MapController.map);
+        });
+    }
+
+    // ------------------------------
+    // addPaths()
+    // ------------------------------
+    function addPaths() {
+        const currentSeason = SeasonController.getCurrentSeason();
+
+        Object.keys(AppState.LIST_PATHS).forEach(characterName => {
+            AppState.LIST_PATHS[characterName] = L.layerGroup(
+                getPolylinesFromName(characterName, currentSeason.id)
+            ).addTo(MapController.map);
+        });
+    }
+    
+    // ------------------------------
+    // hasPaths(characterName, seasonId)
+    // ------------------------------
     function hasPaths(characterName, seasonId) {
         return DATA_PATHS.paths.some(p =>
             p.character === characterName &&
@@ -29,20 +54,9 @@ window.PathsController = (function () {
         );
     }
 
-    function refreshTimelinePaths() {
-        const currentSeason = SeasonController.getCurrentSeason();
-
-        Object.keys(AppState.LIST_PATHS).forEach(characterName => {
-            AppState.LIST_PATHS[characterName].removeFrom(MapController.map);
-            AppState.LIST_PATHS[characterName] = L.layerGroup(
-                getPolylinesFromName(characterName, currentSeason.id)
-            ).addTo(MapController.map);
-        });
-
-        MarkersController.clearMarkers();
-        MarkersController.addMarkers();
-    }
-
+    // ------------------------------
+    // getPolylinesFromName(characterName, seasonId)
+    // ------------------------------
     function getPolylinesFromName(characterName, seasonId) {
         const [from, to] = AppState.CURRENT_RANGE;
 
@@ -65,14 +79,11 @@ window.PathsController = (function () {
         );
     }
 
-    return { togglePath, refreshTimelinePaths, hasPaths };
+    return {
+        togglePath,
+        clearPaths,
+        addPaths,
+        hasPaths
+    };
 
 })();
-
-// Handles timeline range changes (e.g., from a slider control)
-// Updates the current visible episode range in the AppState
-// and refreshes the map paths to only show the paths in that range
-window.timelineChange = (range) => {
-    AppState.CURRENT_RANGE = range;
-    PathsController.refreshTimelinePaths();
-};
