@@ -2,6 +2,9 @@
 window.SliderController = (function () {
     let slider;
 
+    // ------------------------------
+    // createSlider(count)
+    // ------------------------------
     function createSlider(count) {
         if (slider.noUiSlider) {
             slider.noUiSlider.destroy();
@@ -26,10 +29,11 @@ window.SliderController = (function () {
         slider.noUiSlider.on('update', values => {
             sliderChange([Number(values[0]), Number(values[1])]);
         });
-
-        window.timelineChange([0, count]);
     }
 
+    // ------------------------------
+    // init()
+    // ------------------------------
     function init() {
         slider = document.getElementById('slider');
 
@@ -37,10 +41,16 @@ window.SliderController = (function () {
         createSlider(season.episodes);
     }
 
+    // ------------------------------
+    // updateSlider(newCount)
+    // ------------------------------
     function updateSlider(newCount) {
         createSlider(newCount);
     }
 
+    // ------------------------------
+    // sliderChange(range)
+    // ------------------------------
     function sliderChange(range) {
         AppState.CURRENT_RANGE = range;
 

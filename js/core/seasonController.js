@@ -20,19 +20,20 @@ window.SeasonController = (function () {
             const selectedIndex = Number(seasonSelect.value);
             currentSeason = DATA_SEASONS[selectedIndex];
 
-            // Clear state FIRST
+            PathsController.clearPaths();
+            MarkersController.clearMarkers();
+            
+            // Clear state
             AppState.LIST_PATHS = {};
 
             // Update timeline / season-dependent systems
             SliderController.updateSlider(currentSeason.episodes);
 
-            // Clear & rebuild path visuals
-            PathsController.clearPaths();
             PathsController.addPaths();
-
-            // Clear & rebuild marker visuals
-            MarkersController.clearMarkers();
             MarkersController.addMarkers();
+
+            // need to set all the character checkbox icons to unchecked
+            CharacterCheckBoxController.resetCharacterSelection();
         });
     }
 

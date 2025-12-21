@@ -1,6 +1,9 @@
 // rop-map/js/core/pathsUIController.js
 window.CharacterCheckBoxController = (function () {
     const grid = document.getElementById('pathsgrid');
+    // ------------------------------
+    // rebuild()
+    // ------------------------------
     function rebuild() {
         const season = SeasonController.getCurrentSeason();
         const series = season.series; // "rop" or "lotr"
@@ -37,7 +40,10 @@ window.CharacterCheckBoxController = (function () {
         });
     }
 
+    // ------------------------------
+    // setPath(element)
     // Toggles a character's path on the map when the corresponding button or element is clicked
+    // ------------------------------
     function setPath(element) {
         console.log("A character checkbox icon was clicked");
         PathsController.togglePath(element.name);
@@ -45,8 +51,24 @@ window.CharacterCheckBoxController = (function () {
         MarkersController.addMarkers();
     };
 
+    // ------------------------------
+    // resetCharacterSelection()
+    // ------------------------------
+    function resetCharacterSelection() {
+        // Uncheck all UI checkboxes
+        document
+            .querySelectorAll('.pathsgrid input[type="checkbox"]')
+            .forEach(cb => {
+                cb.checked = false;
+            });
+
+        // Clear paths from the map
+        PathsController.clearPaths();
+    }
+
     return { 
         rebuild, 
-        setPath 
+        setPath,
+        resetCharacterSelection
     };
 })();
