@@ -1,4 +1,4 @@
-// rop-map/js/core/pathsUIController.js
+// rop-map/js/core/CharacterCheckBoxController.js
 window.CharacterCheckBoxController = (function () {
     const grid = document.getElementById('pathsgrid');
     // ------------------------------
