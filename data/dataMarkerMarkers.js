@@ -256,6 +256,78 @@ const DATA_MARKERS = {
             "isConfirmed": true
         },
         {
+            "title": "ElvenKing's Halls",
+            "coordinates": [834.5, 900.31],
+            "type": "city",
+            "image": "",
+            "episodes": [
+                {"episode": 1, "season": 104}
+            ],
+            "decription": "",
+            "readMoreUrl": "",
+            "isConfirmed": false
+        },
+        {
+            "title": "Dol Guldur",
+            "coordinates": [707.5, 865.75],
+            "type": "city",
+            "image": "",
+            "episodes": [
+                {"episode": 1, "season": 104}
+            ],
+            "decription": "",
+            "readMoreUrl": "",
+            "isConfirmed": false
+        },
+        {
+            "title": "Goblin-town",
+            "coordinates": [807.25, 814.5],
+            "type": "city",
+            "image": "",
+            "episodes": [
+                {"episode": 1, "season": 104}
+            ],
+            "decription": "The Goblin King (AKA The Great Goblin) rules from Goblin-town, a vast network of caves and tunnels deep within the Misty Mountains.",
+            "readMoreUrl": "",
+            "isConfirmed": false
+        },
+        {
+            "title": "Beorn's Home",
+            "coordinates": [809, 840.75],
+            "type": "point of interest",
+            "image": "",
+            "episodes": [
+                {"episode": 1, "season": 104}
+            ],
+            "decription": "Beorn, a powerful skin-changer who can transform into a giant black bear, known for his immense strength, love of animals, and crucial intervention in the Battle of the Five Armies. He's a solitary, gruff figure who lives between the Misty Mountains and Mirkwood",
+            "readMoreUrl": "",
+            "isConfirmed": false
+        },
+        {
+            "title": "The Elf-path",
+            "coordinates": [827.75, 863.25],
+            "type": "event",
+            "image": "",
+            "episodes": [
+                {"episode": 1, "season": 104}
+            ],
+            "decription": "Bilbo Baggins and the Dwarves encounter a large number of giant spiders in the northern section of Mirkwood, after they stray from the narrow Elf-path while trying to cross the forest",
+            "readMoreUrl": "",
+            "isConfirmed": false
+        },
+        {
+            "title": "Lake-Town (Esgaroth)",
+            "coordinates": [834.25, 920.75],
+            "type": "city",
+            "image": "",
+            "episodes": [
+                {"episode": 1, "season": 104}
+            ],
+            "decription": "",
+            "readMoreUrl": "",
+            "isConfirmed": false
+        },
+        {
             "title": "Grey Marshes",
             "coordinates": [599.6, 889.9],
             "type": "area",
