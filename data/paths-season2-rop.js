@@ -29,21 +29,21 @@ DATA_PATHS.paths.push(
         "season": 2,
         "episode": 1,
         "isConfirmed": true,
-        "coordinates": [[100, 50], [120, 70], [140, 90], [160, 110], [180, 130], [200, 150]]
+        "coordinates": [[780.3125, 571.6250], [780.3125, 671.6250]]
     },
     {
         "character": "Galadriel",
         "season": 2,
         "episode": 2,
         "isConfirmed": true,
-        "coordinates": [[200, 150], [220, 180], [240, 200], [260, 220], [280, 240]]
+        "coordinates": []
     },
     {
         "character": "Galadriel",
         "season": 2,
         "episode": 3,
         "isConfirmed": false,
-        "coordinates": [[280, 240], [300, 260], [320, 280], [340, 300]]
+        "coordinates": []
     },
 
     // Elrond
