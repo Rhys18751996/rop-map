@@ -6,7 +6,8 @@ const DATA_MARKERS = {
             "type": "village",
             "image": "hobbiton.webp",
             "episodes": [
-                {"episode": 1, "season": 100}
+                {"episode": 1, "season": 100},
+                {"episode": 1, "season": 104}
             ],
             "decription": "Hobbiton is a Hobbit village in the central regions of the Shire, within the borders of the Westfarthing.",
             "readMoreUrl": "https://tolkiengateway.net/wiki/Hobbiton",
@@ -42,7 +43,8 @@ const DATA_MARKERS = {
             "type": "village",
             "image": "bree.webp",
             "episodes": [
-                {"episode": 1, "season": 100}
+                {"episode": 1, "season": 100},
+                {"episode": 1, "season": 104}
             ],
             "decription": "Bree is a village of Men and hobbits, located east of the Shire and south of Fornost in Eriador.",
             "readMoreUrl": "https://tolkiengateway.net/wiki/Bree",
@@ -102,7 +104,8 @@ const DATA_MARKERS = {
             "type": "city",
             "image": "rivendell.webp",
             "episodes": [
-                {"episode": 1, "season": 100}
+                {"episode": 1, "season": 100},
+                {"episode": 1, "season": 104}
             ],
             "decription": "Rivendell, or Imladris, is an Elven outpost established by Elrond in the Misty Mountains on the eastern edge of Eriador.",
             "readMoreUrl": "https://tolkiengateway.net/wiki/Rivendell",
@@ -118,6 +121,18 @@ const DATA_MARKERS = {
             ],
             "decription": "A blizzard summoned by Saruman forces the Fellowship of the Ring to turn back.",
             "readMoreUrl": "https://tolkiengateway.net/wiki/Misty_Mountains",
+            "isConfirmed": true
+        },
+                {
+            "title": "The Lonely Mountain",
+            "coordinates": [851.25, 920.75],
+            "type": "area",
+            "image": "",
+            "episodes": [
+                {"episode": 1, "season": 104}
+            ],
+            "decription": "The Lonely Mountain. Erebor",
+            "readMoreUrl": "https://tolkiengateway.net/wiki/Lonely_Mountain",
             "isConfirmed": true
         },
         {
@@ -393,7 +408,8 @@ const DATA_MARKERS = {
                 {"episode": 2, "season": 1},
                 {"episode": 3, "season": 1},
                 {"episode": 4, "season": 1},
-                {"episode": 5, "season": 1}
+                {"episode": 5, "season": 1},
+                {"episode": 1, "season": 2}
             ],
             "decription": "Mithlond, known also as Grey Havens, is the capital of the high elves, ruled by Gil-galad.",
             "readMoreUrl": "https://tolkiengateway.net/wiki/Grey_Havens",

@@ -149,7 +149,7 @@ DATA_PATHS.paths.push(
     },
     {
         "character": "Bilbo and Thorin",
-        "season": 101,
+        "season": 104,
         "episode": 1,
         "isConfirmed": true,
         "coordinates": [
