@@ -172,6 +172,18 @@ const DATA_MARKERS = {
             "isConfirmed": true
         },
         {
+            "title": "Erech",
+            "coordinates": [564, 799.25],
+            "type": "point of interest",
+            "image": "",
+            "episodes": [
+                {"episode": 1, "season": 100}
+            ],
+            "decription": "Paths of the Dead",
+            "readMoreUrl": "https://tolkiengateway.net/wiki/Erech",
+            "isConfirmed": true
+        },
+        {
             "title": "Emyn Arnen",
             "coordinates": [603.5, 881],
             "type": "area",
