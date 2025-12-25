@@ -184,6 +184,18 @@ const DATA_MARKERS = {
             "isConfirmed": true
         },
         {
+            "title": "Amon Hen",
+            "coordinates": [597.25, 859.875],
+            "type": "point of interest",
+            "image": "",
+            "episodes": [
+                {"episode": 1, "season": 100}
+            ],
+            "decription": "An ancient watchtower hill with ruins, located by the wooded slopes of Parth Galen. The location Boromir is killed by Lurtz",
+            "readMoreUrl": "https://tolkiengateway.net/wiki/Amon_Hen",
+            "isConfirmed": true
+        },
+        {
             "title": "Emyn Arnen",
             "coordinates": [603.5, 881],
             "type": "area",
